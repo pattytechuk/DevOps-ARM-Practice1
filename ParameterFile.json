@@ -4,6 +4,9 @@
     "parameters": {
         "storageAccountName": {
             "value": "StorageAccount1"
+        }, 
+        "storageSKU":{
+            "value": "Standard_LRS"
         }
     }
 }

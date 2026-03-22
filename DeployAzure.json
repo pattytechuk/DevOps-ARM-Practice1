@@ -4,6 +4,7 @@
     "parameters": {
         "storageAccountName": {
         "type": "string",
+        "maxLength": 10,
         "metadata": {
         "description": "The name of the storage account to create."
       }
@@ -36,5 +37,10 @@
             "properties": {}
         }
     ],
-    "outputs": {}
-} 
+    "outputs": {
+    "storageAccountName": {
+        "type": "string",
+        "value": "[parameters('storageAccountName')]"
+    }
+    }
+}
