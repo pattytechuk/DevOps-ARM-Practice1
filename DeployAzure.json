@@ -37,9 +37,21 @@
         }
     ],
     "outputs": {
-    "storageAccountName": {
-        "type": "string",
-        "value": "[parameters('storageAccountName')]"
-    }
+        "storageAccountName": {
+            "type": "string",
+            "value": "[parameters('storageAccountName')]"
+        }, 
+        "storageEndpoint":{
+            "type": "object",
+            "value": "[reference(resourceID('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).primaryEndpoints]"
+        }, 
+        "sku": {
+            "type": "string",
+            "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).sku.name]"
+        },
+        "status": {
+            "type": "string",
+            "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))).provisioningState]"
+        }
     }
 }
